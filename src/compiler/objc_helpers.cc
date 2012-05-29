@@ -225,7 +225,7 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
 
       return options.class_prefix();
     } else {
-      return "";
+      return "Proto";
     }
   }
 
