@@ -30,9 +30,9 @@
 
 @implementation PBCodedInputStream
 
-const int32_t DEFAULT_RECURSION_LIMIT = 64;
-const int32_t DEFAULT_SIZE_LIMIT = 64 << 20;  // 64MB
-const int32_t BUFFER_SIZE = 4096;
+static const int32_t DEFAULT_RECURSION_LIMIT = 64;
+static const int32_t DEFAULT_SIZE_LIMIT = 64 << 20;  // 64MB
+static const int32_t BUFFER_SIZE = 4096;
 
 @synthesize buffer;
 @synthesize input;
