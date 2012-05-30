@@ -2,6 +2,17 @@
 
 #import "ProtocolBuffers.h"
 
+#if 0
+#import "ProtocolBuffers/ExtensionRegistry.h"
+#import "ProtocolBuffers/MutableExtensionRegistry.h"
+#import "ProtocolBuffers/GeneratedMessage.h"
+#import "ProtocolBuffers/GeneratedMessage_Builder.h"
+#import "ProtocolBuffers/ExtendableMessage.h"
+#import "ProtocolBuffers/ExtendableMessage_Builder.h"
+#else
+#import "Bootstrap.h"
+#endif
+
 @class PBDescriptorProto;
 @class PBDescriptorProto_Builder;
 @class PBDescriptorProto_ExtensionRange;
@@ -38,6 +49,7 @@
 @class PBUninterpretedOption_Builder;
 @class PBUninterpretedOption_NamePart;
 @class PBUninterpretedOption_NamePart_Builder;
+
 typedef enum {
   PBFieldDescriptorProto_TypeTypeDouble = 1,
   PBFieldDescriptorProto_TypeTypeFloat = 2,
