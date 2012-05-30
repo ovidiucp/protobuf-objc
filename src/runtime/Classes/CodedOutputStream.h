@@ -37,6 +37,7 @@
 @interface PBCodedOutputStream : NSObject {
     NSOutputStream *output;
     RingBuffer *buffer;
+  NSMutableData* data_;
 }
 
 + (PBCodedOutputStream*) streamWithData:(NSMutableData*) data;
