@@ -22,6 +22,7 @@
 #import "ExtendableMessage.h"
 #import "ExtendableMessage_Builder.h"
 #import "ExtensionRegistry.h"
+#import "MutableExtensionRegistry.h"
 #import "GeneratedMessage.h"
 #import "GeneratedMessage_Builder.h"
 #import "Message_Builder.h"
