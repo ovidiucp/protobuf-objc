@@ -648,10 +648,23 @@ namespace google { namespace protobuf { namespace compiler { namespace objective
 
   void RepeatedPrimitiveFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
     if (ReturnsPrimitiveType(descriptor_)) {
-      printer->Print(variables_,
-        "for (NSNumber* value in self.$list_name$) {\n"
-        "  [output appendFormat:@\"%@%@: %@\\n\", indent, @\"$name$\", value];\n"
-        "}\n");
+      printer->Print(
+          variables_,
+          "{ // used to be bummer\n"
+          "  const $type$* values = (const $type$*)self.$list_name$.data;\n"
+          "  for (int i = 0, count = self.$list_name$.count; i < count; i++) {\n"
+          "    [output appendFormat:@\"%@%@: %@\\n\", indent, @\"$name$\", ");
+      printer->Print(
+          variables_,
+          BoxValue(descriptor_, "values[i]").c_str());
+      printer->Print(
+          variables_,
+          "];\n"
+          "  }\n"
+          "}\n");
+        // "for (NSNumber* value in self.$list_name$) { // bummer\n"
+        // "  [output appendFormat:@\"%@%@: %@\\n\", indent, @\"$name$\", value];\n"
+        // "}\n");
     } else {
       printer->Print(variables_,
         "for ($storage_type$ element in self.$list_name$) {\n"
