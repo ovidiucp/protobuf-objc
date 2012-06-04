@@ -47,7 +47,7 @@ namespace google { namespace protobuf { namespace compiler {namespace objectivec
 
     // hacky.  but this is how other generators determine if we're generating
     // the core ProtocolBuffers library
-    printer->Print("#import <ProtocolBuffers/ProtocolBuffers.h>\n\n");
+    printer->Print("#import \"ProtocolBuffers.h\"\n\n");
 
     if (file_->dependency_count() > 0) {
       for (int i = 0; i < file_->dependency_count(); i++) {
@@ -70,7 +70,7 @@ namespace google { namespace protobuf { namespace compiler {namespace objectivec
       "#ifndef __has_feature\n"
       "  #define __has_feature(x) 0 // Compatibility with non-clang compilers.\n"
       "#endif // __has_feature\n\n");
-    
+
     printer->Print(
       "#ifndef NS_RETURNS_NOT_RETAINED\n"
       "  #if __has_feature(attribute_ns_returns_not_retained)\n"
